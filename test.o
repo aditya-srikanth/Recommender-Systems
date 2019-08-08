@@ -1,0 +1,12 @@
+Rank:  598
+Size of U,V (599, 597) (2001, 597)
+(599, 2001)
+1
+Non reduced 0.9632098901246284
+90% reduced 0.580053253984939
+Precision_top_10:  0.7700000000000001
+Precision_top_10 (90% reduced):  0.8100000000000002
+Spearman Coeff: 0.8864398517524454
+Spearman Coeff (90% reduced): 0.896693728909771
+Duration: 0.011499799999999638
+Duration (90% reduced): 6.919999999972503e-05

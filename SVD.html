@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module SVD</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>SVD</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:d%3A%5Cstudies%5C3-1%5Cir%5Crecommender-systems%5Csvd.py">d:\studies\3-1\ir\recommender-systems\svd.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="pickle.html">pickle</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-Energy"><strong>Energy</strong></a>(A)</dt><dd><tt>This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;energy&nbsp;of&nbsp;the&nbsp;matrix.<br>
+&nbsp;<br>
+@type&nbsp;&nbsp;A:&nbsp;Square&nbsp;matrix&nbsp;(numpy&nbsp;Array)<br>
+@param&nbsp;A:&nbsp;Matrix&nbsp;for&nbsp;which&nbsp;energy&nbsp;must&nbsp;be&nbsp;calculated<br>
+@rtype:&nbsp;&nbsp;&nbsp;number<br>
+@return:&nbsp;Energy&nbsp;of&nbsp;the&nbsp;matrix</tt></dd></dl>
+ <dl><dt><a name="-Precision_top_k"><strong>Precision_top_k</strong></a>(k, q, V)</dt><dd><tt>This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;Precision&nbsp;Top&nbsp;K<br>
+&nbsp;<br>
+@type&nbsp;&nbsp;k&nbsp;:&nbsp;number<br>
+@param&nbsp;k&nbsp;:&nbsp;The&nbsp;k&nbsp;in&nbsp;Precision&nbsp;Top&nbsp;k<br>
+@type&nbsp;q:&nbsp;Square&nbsp;matrix&nbsp;(1D)&nbsp;(numpy&nbsp;Array)<br>
+@para&nbsp;q:&nbsp;Query&nbsp;Vector<br>
+@type&nbsp;&nbsp;V:&nbsp;Square&nbsp;matrix&nbsp;(numpy&nbsp;Array)<br>
+@param&nbsp;V:&nbsp;The&nbsp;V&nbsp;obtained&nbsp;from&nbsp;the&nbsp;SVD<br>
+@rtype:&nbsp;&nbsp;number<br>
+@return:&nbsp;Precision&nbsp;Top&nbsp;K&nbsp;value&nbsp;obtained</tt></dd></dl>
+ <dl><dt><a name="-Query"><strong>Query</strong></a>(q, V)</dt><dd><tt>This&nbsp;function&nbsp;queries&nbsp;the&nbsp;SVD&nbsp;matrix&nbsp;given&nbsp;a&nbsp;query&nbsp;vector<br>
+&nbsp;<br>
+@type&nbsp;&nbsp;q:&nbsp;Square&nbsp;matrix&nbsp;(1D)&nbsp;(numpy&nbsp;Array)<br>
+@param&nbsp;q:&nbsp;Query&nbsp;vector<br>
+@type&nbsp;&nbsp;V:&nbsp;Square&nbsp;matrix&nbsp;(numpy&nbsp;Array)<br>
+@param&nbsp;V:&nbsp;The&nbsp;V&nbsp;obtained&nbsp;from&nbsp;the&nbsp;SVD<br>
+@rtype:&nbsp;Square&nbsp;matrix&nbsp;(1D)&nbsp;(numpy&nbsp;Array)<br>
+@return:&nbsp;The&nbsp;result&nbsp;vector&nbsp;obtained</tt></dd></dl>
+ <dl><dt><a name="-RMSE"><strong>RMSE</strong></a>(user_array, FinalA)</dt><dd><tt>This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;Root-Mean-Square-Error&nbsp;value&nbsp;obtained&nbsp;between&nbsp;two&nbsp;matrices<br>
+&nbsp;<br>
+@type&nbsp;&nbsp;user_array:&nbsp;Square&nbsp;matrix&nbsp;(numpy&nbsp;Array)<br>
+@param&nbsp;user_array:&nbsp;The&nbsp;original&nbsp;matrix&nbsp;before&nbsp;SVD&nbsp;decomposition<br>
+@type&nbsp;&nbsp;FinalA:&nbsp;Square&nbsp;matrix&nbsp;(numpy&nbsp;Array)<br>
+@param&nbsp;FinalA:&nbsp;The&nbsp;matrix&nbsp;after&nbsp;SVD&nbsp;decomposition<br>
+@rtype:&nbsp;&nbsp;number<br>
+@return:&nbsp;Root-Mean-Square-Error&nbsp;value&nbsp;obtained</tt></dd></dl>
+ <dl><dt><a name="-SVD"><strong>SVD</strong></a>(user_array)</dt><dd><tt>This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;SVD&nbsp;decomposition&nbsp;of&nbsp;a&nbsp;given&nbsp;matrix<br>
+&nbsp;<br>
+@type&nbsp;&nbsp;user_array:&nbsp;Square&nbsp;matrix&nbsp;(numpy&nbsp;Array)<br>
+@param&nbsp;user_array:&nbsp;The&nbsp;original&nbsp;matrix&nbsp;before&nbsp;SVD&nbsp;decomposition<br>
+@rtype:&nbsp;Tuple&nbsp;of&nbsp;(Square&nbsp;matrix,Square&nbsp;matrix,Square&nbsp;matrix,Square&nbsp;matrix)<br>
+@return:&nbsp;Tuple&nbsp;of&nbsp;U&nbsp;,&nbsp;sigma&nbsp;,&nbsp;V&nbsp;,&amp;&nbsp;the&nbsp;obtained&nbsp;eigenvalues</tt></dd></dl>
+ <dl><dt><a name="-spearmanCoefficient"><strong>spearmanCoefficient</strong></a>(predicted_rating, test_rating)</dt><dd><tt>This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;Spearman&nbsp;Coefficient<br>
+&nbsp;<br>
+@type&nbsp;&nbsp;predicted_rating:&nbsp;Square&nbsp;matrix&nbsp;(1D)&nbsp;(numpy&nbsp;Array)<br>
+@param&nbsp;predicted_rating:&nbsp;The&nbsp;Predicted&nbsp;rating&nbsp;obtained&nbsp;through&nbsp;Querying<br>
+@type&nbsp;&nbsp;test_rating:&nbsp;Square&nbsp;matrix&nbsp;(1D)&nbsp;(numpy&nbsp;Array)<br>
+@param&nbsp;test_rating:&nbsp;The&nbsp;actual&nbsp;list&nbsp;of&nbsp;ratings&nbsp;given&nbsp;by&nbsp;a&nbsp;user<br>
+@rtype:&nbsp;&nbsp;number<br>
+@return:&nbsp;Spearman&nbsp;Coefficient&nbsp;obtained</tt></dd></dl>
+</td></tr></table>
+</body></html>

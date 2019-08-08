@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module CUR</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>CUR</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:d%3A%5Cstudies%5C3-1%5Cir%5Crecommender-systems%5Ccur.py">d:\studies\3-1\ir\recommender-systems\cur.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+<a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="pickle.html">pickle</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-CUR"><strong>CUR</strong></a>(A, num_dimensions, recomputeMatrix=False, energy_needed=1.0)</dt><dd><tt>Takes&nbsp;the&nbsp;user&nbsp;rating&nbsp;matrix&nbsp;and&nbsp;returns&nbsp;the&nbsp;computed&nbsp;C,&nbsp;U&nbsp;and&nbsp;R&nbsp;matrices.<br>
+If&nbsp;it&nbsp;finds&nbsp;that&nbsp;the&nbsp;file&nbsp;CUR_Matrices.txt&nbsp;already&nbsp;exists,&nbsp;it&nbsp;unpickles&nbsp;it&nbsp;and&nbsp;returns&nbsp;them,<br>
+else&nbsp;it&nbsp;computes&nbsp;them,&nbsp;pickles&nbsp;them&nbsp;and&nbsp;then&nbsp;returns&nbsp;them,&nbsp;You&nbsp;can&nbsp;recompute&nbsp;these&nbsp;matrices<br>
+using&nbsp;the&nbsp;boolean&nbsp;flag&nbsp;recomputeMatrix&nbsp;.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@type&nbsp;A:&nbsp;Numpy&nbsp;array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;A&nbsp;:&nbsp;matrix&nbsp;that&nbsp;has&nbsp;to&nbsp;be&nbsp;decomposed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@type&nbsp;recomputeMatrix:&nbsp;boolean<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;recomputeMatrix&nbsp;:&nbsp;as&nbsp;name&nbsp;suggests,&nbsp;recompute&nbsp;the&nbsp;decomposition&nbsp;matrices,&nbsp;pickle&nbsp;them&nbsp;and&nbsp;return&nbsp;the&nbsp;matrices<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@type:&nbsp;energy_needed:&nbsp;float&nbsp;in&nbsp;range&nbsp;[0,1]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;energy_needed:&nbsp;float,&nbsp;the&nbsp;energy&nbsp;that&nbsp;has&nbsp;to&nbsp;be&nbsp;retained&nbsp;during&nbsp;the&nbsp;decomposition<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@rtype&nbsp;(C,U,R)&nbsp;tuple&nbsp;of&nbsp;Numpy&nbsp;arrays&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;(C,U,R):&nbsp;tuple&nbsp;of&nbsp;decomposed&nbsp;matrices</tt></dd></dl>
+ <dl><dt><a name="-Energy"><strong>Energy</strong></a>(A)</dt></dl>
+ <dl><dt><a name="-precisionTopK"><strong>precisionTopK</strong></a>(k, q, R)</dt><dd><tt>This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;Precision&nbsp;Top&nbsp;K<br>
+&nbsp;<br>
+@type&nbsp;&nbsp;k&nbsp;:&nbsp;number<br>
+@param&nbsp;k&nbsp;:&nbsp;The&nbsp;k&nbsp;in&nbsp;Precision&nbsp;Top&nbsp;k<br>
+@type&nbsp;q:&nbsp;Square&nbsp;matrix&nbsp;(1D)&nbsp;(numpy&nbsp;Array)<br>
+@parma&nbsp;q:&nbsp;Query&nbsp;Vector<br>
+@type&nbsp;&nbsp;R:&nbsp;Square&nbsp;matrix&nbsp;(numpy&nbsp;Array)<br>
+@param&nbsp;R:&nbsp;The&nbsp;V&nbsp;obtained&nbsp;from&nbsp;the&nbsp;SVD<br>
+@rtype:&nbsp;&nbsp;number<br>
+@return:&nbsp;Precision&nbsp;Top&nbsp;K&nbsp;value&nbsp;obtained</tt></dd></dl>
+ <dl><dt><a name="-query"><strong>query</strong></a>(q, R)</dt><dd><tt>This&nbsp;function&nbsp;queries&nbsp;the&nbsp;CUR&nbsp;matrix&nbsp;given&nbsp;a&nbsp;query&nbsp;vector<br>
+&nbsp;<br>
+@type&nbsp;&nbsp;q:&nbsp;Square&nbsp;matrix&nbsp;(1D)&nbsp;(numpy&nbsp;Array)<br>
+@param&nbsp;q:&nbsp;Query&nbsp;vector<br>
+@type&nbsp;&nbsp;R:&nbsp;Square&nbsp;matrix&nbsp;(numpy&nbsp;Array)<br>
+@param&nbsp;R:&nbsp;The&nbsp;V&nbsp;obtained&nbsp;from&nbsp;the&nbsp;SVD<br>
+@rtype:&nbsp;Square&nbsp;matrix&nbsp;(1D)&nbsp;(numpy&nbsp;Array)<br>
+@return:&nbsp;The&nbsp;result&nbsp;vector&nbsp;obtained</tt></dd></dl>
+ <dl><dt><a name="-rmse"><strong>rmse</strong></a>(originalMatrix, C, U, R)</dt><dd><tt>Calculates&nbsp;the&nbsp;Root&nbsp;mean&nbsp;Squared&nbsp;Error(RMSE)&nbsp;incurred&nbsp;after&nbsp;CUR&nbsp;decomposition<br>
+&nbsp;<br>
+@param&nbsp;A:&nbsp;original&nbsp;matrix<br>
+@param&nbsp;C:&nbsp;Vector&nbsp;numpy<br>
+@param&nbsp;U:&nbsp;Vector&nbsp;numpy<br>
+@param&nbsp;R:Vector&nbsp;numpy<br>
+&nbsp;<br>
+@return&nbsp;error:&nbsp;reconstruction&nbsp;error&nbsp;incurred&nbsp;while&nbsp;decomposing</tt></dd></dl>
+ <dl><dt><a name="-spearmanCoefficient"><strong>spearmanCoefficient</strong></a>(predicted_rating, test_rating)</dt><dd><tt>This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;spearman&nbsp;coefficient&nbsp;of&nbsp;two&nbsp;vectors<br>
+@type&nbsp;predicted_rank:&nbsp;Numpy&nbsp;array<br>
+@param:&nbsp;predicted_rating:&nbsp;predicted&nbsp;rating&nbsp;by&nbsp;the&nbsp;decomposition<br>
+@type&nbsp;test_rating:&nbsp;Numpy&nbsp;array<br>
+@param:&nbsp;test_rating:&nbsp;actual&nbsp;rating<br>
+@rtype:&nbsp;float<br>
+@return&nbsp;rho:&nbsp;the&nbsp;spearman&nbsp;coefficient</tt></dd></dl>
+</td></tr></table>
+</body></html>
